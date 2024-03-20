@@ -1,171 +1,341 @@
 /* Custom styles for Hero Section */
 #hero-section {
-position: relative;
-padding: 100px 0;
-color: #fff;
-text-align: center;
+    position: relative;
+    padding: 100px 0;
+    color: #ffcc00;
+    overflow: hidden; /* Ensure the overlay covers the entire section */
 }
 
-/* Enlarge the background image to cover the full screen */
-#hero-section {
-background-size: cover;
+/* Background image with blur */
+#hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/HeroBackImage.jpg');
+    background-size: cover;
+    filter: blur(5px); /* Apply blur effect */
+    z-index: -1; /* Ensure the background is behind other content */
 }
 
-/* Custom styles for Hero Image */
-.hero-image img {
-width: 400px; /* Adjust the width of the headshot image */
-height: 400px; /* Adjust the height of the headshot image */
-border-radius: 50%;
-margin-bottom: 20px;
+/* Overlay for Hero Section */
+#hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay color */
+}
+
+/* Custom styles for Hero Content */
+.hero-content {
+    position: relative; /* Ensure the content appears on top of the overlay */
+    z-index: 1; /* Ensure the content appears on top of the overlay */
+    text-align: center; /* Center align content */
 }
 
 /* Custom styles for Hero Text */
-.hero-text h1.exo-2-name {
-font-size: 4rem; /* Increase the font size of the name */
+.hero-text {
+    margin-top: 50px; /* Adjust vertical spacing */
 }
 
-/* Custom styles for Hero Tagline */
-#hero-tagline {
-font-size: 2rem; /* Increase the font size of the tagline */
-}
-
-
-/* Custom styles for animated text */
-#animated-text {
-font-family: 'Exo 2', sans-serif; /* Apply Exo 2 font to the animated text */
-}
-
-.hero-overlay {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.5);
-backdrop-filter: blur(5px);
-z-index: 0;
-}
-
-.hero-content {
-position: relative;
-z-index: 1;
-}
-
+/* Custom styles for Headshot Image */
 .hero-image img {
-width: 200px;
-height: 200px;
-border-radius: 50%;
-/*margin-bottom: 20px;*/
+    width: 300px; /* Adjust the width of the headshot image */
+    height: 300px; /* Adjust the height of the headshot image */
+    border-radius: 50%;
+    margin-bottom: 20px;
 }
 
-.hero-text h1 {
-font-size: 2.5rem;
-font-weight: bold;
-color: #fff;
-margin-bottom: 10px;
+/* Button styles */
+.btn-orange {
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.hero-text p {
-font-size: 1.2rem;
-color: #fff;
+.btn-orange:hover {
+    background-color: #ff9900;
 }
 
 /* Custom styles for Mission Section */
-.mission-text {
-font-size: 1.1rem;
+#mission-section {
+    background-color: #222;
+    color: #ffcc00;
+    padding: 100px 0;
 }
+
+/* Custom styles for Mission Text */
+.mission-text {
+    font-size: 1.1rem;
+}
+
+/* Bold About Me title */
+.section-title {
+    font-weight: bold;
+}
+
 
 /* Custom styles for Skills Section */
-.skill-logo {
-max-width: 150px;
-max-height: 150px;
-width: auto;
-height: auto;
-transition: transform 0.3s;
-}
-
-.skill-logo:hover {
-transform: scale(1.3);
-}
-
-/* Custom styles for Contact Section */
-.icon-link {
-font-size: 3rem;
-color: #000;
-margin: 10px;
-transition: color 0.3s ease;
-}
-
-.icon-link:hover {
-color: #007bff;
+#skills-section {
+    background-color: #222;
+    color: #ffcc00;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 /* Custom styles for Work Experience Section */
 #work-experience-section {
-padding: 100px 0;
+    background-color: #333;
+    color: #ffcc00;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
-/* Timeline styles */
-.timeline {
-position: relative;
-padding: 20px 0;
+/* Custom styles for Work Experience Section */
+#work-experience-section {
+    background-color: #000;
+    color: #fff;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
-.timeline:before {
-content: '';
-position: absolute;
-top: 0;
-left: 50%;
-width: 2px;
-height: 100%;
-background: #007bff;
-transform: translateX(-50%);
+
+/* Custom styles for Work Experience Cards */
+.work-experience-card {
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
-.timeline-item {
-margin-bottom: 50px;
+
+.work-experience-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
 }
-.timeline-content {
-position: relative;
-width: 50%;
-padding: 20px;
-background: #f9f9f9;
-border-radius: 10px;
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-.timeline-content h3 {
-font-size: 1.5rem;
-margin-bottom: 10px;
-color: #333;
-}
-.timeline-content p {
-font-size: 1rem;
-color: #777;
-margin-bottom: 15px;
-}
-.timeline-content ul {
-list-style-type: none;
-padding-left: 20px;
-}
-.timeline-content ul li {
-margin-bottom: 8px;
-}
-.timeline-content ul li:before {
-content: "\2022";
-color: #007bff;
-margin-right: 8px;
-}
-/* Section title styles */
-.section-title {
-text-align: center;
-margin-bottom: 50px;
+
+.work-experience-subtext {
+    color: #EC9F05;
 }
 
 /* Custom styles for Bootstrap Carousel Section */
 .carousel-item img {
-height: 400px;
-object-fit: cover;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Custom styles for Project Cards */
+.project-card {
+    perspective: 1000px;
+    position: relative;
+    height: 400px;
+}
+
+.card-front {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img-top {
+    transition: transform 0.5s ease;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.card-overlay:hover {
+    opacity: 1;
+}
+
+/* Custom styles for Contact Section */
+#contact-section {
+    background-color: #222;
+    color: #fff;
+    padding: 100px 0;
+}
+
+/* Custom styles for Contact Icons */
+.icon-link {
+    font-size: 3rem;
+    color: #fff;
+    margin: 10px;
+    transition: color 0.3s ease;
+}
+
+.icon-link:hover {
+    color: #ffcc00;
 }
 
 /* Custom styles for Footer Section */
 #footer-section {
-margin-top: 50px;
+    background-color: #111;
+    color: #ffcc00;
+    padding: 50px 0;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #111;
+    color: #ffcc00;
+}
+
+a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff9900;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #222 !important;
+}
+
+.navbar-brand, .nav-link {
+    color: #ffcc00 !important;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #ff9900 !important;
+}
+
+/* Section title styles */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Custom styles for animated text */
+#animated-text {
+    font-family: 'Exo 2', sans-serif;
+}
+
+/* Custom styles for Skills Section */
+.skill-logo {
+    max-width: 150px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.skill-logo:hover {
+    transform: scale(1.3);
+}
+
+/* Custom styles for Contact Section */
+.icon-link {
+    font-size: 3rem;
+    color: #ffcc00;
+    margin: 10px;
+    transition: color 0.3s ease;
+}
+
+.icon-link:hover {
+    color: #ff9900;
+}
+
+/* Custom styles for Progress Bars */
+.progress {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 20px;
+}
+
+.progress-bar {
+    background-color: #ffcc00;
+    border-radius: 10px;
+}
+
+/* Custom styles for Flip Card Section */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #333;
+}
+
+.flip-card-back {
+    background-color: #222;
+    color: #ffcc00;
+    transform: rotateY(180deg);
+}
+
+/* Custom styles for Bootstrap Carousel Section */
+#carouselExampleControls {
+    background-color: #000;
+    padding: 50px 0;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    color: #ffcc00;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    color: #ff9900;
+}
+
+/* Custom styles for Project Cards */
+.project-card {
+    background-color: #222;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.project-card h5 {
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+.project-card p {
+    color: #fff;
 }
