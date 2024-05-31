@@ -2,7 +2,7 @@
 #hero-section {
   position: relative;
   padding: 100px 0;
-  color: #ffcc00;
+  color: #fda521;
   overflow: hidden; /* Ensure the overlay covers the entire section */
 }
 
@@ -39,6 +39,7 @@
 /* Custom styles for Hero Text */
 .hero-text {
   margin-top: 50px; /* Adjust vertical spacing */
+  color: #eeeeee;
 }
 
 /* Custom styles for Headshot Image */
@@ -46,13 +47,13 @@
   width: 300px; /* Adjust the width of the headshot image */
   height: 300px; /* Adjust the height of the headshot image */
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 /* Button styles */
 .btn-orange {
-  background-color: #ffcc00;
-  color: #000;
+  background-color: #fda521;
+  color: #110904;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -61,24 +62,24 @@
 }
 
 .btn-orange:hover {
-  background-color: #ff9900;
+  background-color: transparent;
 }
 
 /* Custom styles for Mission Section */
 #mission-section {
-  background-color: #222;
+  background-color: #222831;
   padding: 100px 0;
 }
 
 /* Custom styles for Mission Text */
 .mission-text {
-  color: #ffcc00;
+  color: #fda521;
   font-size: 1rem;
 }
 
 /* Bold About Me and Skills title */
 .section-title {
-  color: white;
+  color: #eeeeee;
   font-weight: bold;
   font-size: 2rem;
   text-align: center;
@@ -87,8 +88,8 @@
 
 /* Custom styles for Skills Section */
 #skills-section {
-  background-color: #222;
-  color: #ffcc00;
+  background-color: #222831;
+  color: #fda521;
   padding-top: 100px;
   padding-bottom: 100px;
 }
@@ -108,16 +109,16 @@
 
 /* Custom styles for Work Experience Section */
 #work-experience-section {
-  background-color: #222;
-  color: #fff;
+  background-color: #222831;
+  color: #eeeeee;
   padding-top: 100px;
   padding-bottom: 100px;
 }
 
 /* Custom styles for Work Experience Cards */
 .work-experience-card {
-  background-color: #222;
-  color: #fff;
+  background-color: #222831;
+  color: #eeeeee;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
@@ -126,14 +127,14 @@
 .work-experience-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #fff;
+  color: #eeeeee;
   margin-bottom: 5px;
 }
 
 .work-experience-place {
   font-size: 1rem;
   font-style: italic;
-  color: #fff;
+  color: #eeeeee;
   margin-bottom: 10px;
 }
 
@@ -143,39 +144,38 @@
 
 /* Custom styles for Contact Section */
 #contact-section {
-  background-color: #222;
-  color: #fff;
+  background-color: #222831;
   padding: 100px 0;
 }
 
 /* Custom styles for Contact Icons */
 .icon-link {
   font-size: 3rem;
-  color: #fff;
+  color: #eeeeee;
   margin: 10px;
   transition: color 0.3s ease;
 }
 
 .icon-link:hover {
-  color: #ffcc00;
+  color: #fda521;
 }
 
 /* Custom styles for Footer Section */
 #footer-section {
   background-color: #111;
-  color: #ffcc00;
+  color: #fda521;
   padding: 50px 0;
 }
 
 /* Global Styles */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #222;
-  color: #ffcc00;
+  background-color: #222831;
+  color: #fda521;
 }
 
 a {
-  color: #ffcc00;
+  color: #fda521;
   text-decoration: none;
 }
 
@@ -190,7 +190,7 @@ a:hover {
 
 .navbar-brand,
 .nav-link {
-  color: #ffcc00 !important;
+  color: #fda521 !important;
 }
 
 .navbar-brand:hover,
@@ -228,14 +228,14 @@ a:hover {
 
 /* Custom styles for Projects Section */
 #projects-section {
-  background-color: #222;
-  color: #fff;
+  background-color: #222831;
+  color: #eeeeee;
   padding-top: 100px;
   padding-bottom: 100px;
 }
 
 .project-card {
-  background-color: #222;
+  background-color: #222831;
   border: none;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -281,7 +281,7 @@ a:hover {
 .project-description,
 .project-skills {
   font-size: 1rem;
-  color: #fff;
+  color: #eeeeee;
   margin-bottom: 10px;
 }
 
@@ -299,8 +299,7 @@ a:hover {
 .project-description {
   font-size: 1rem; /* Reduce font size for description */
   overflow: auto; /* Add overflow auto to handle long descriptions */
-  color: #ec9f05;
-  
+  color: #ec9f05; /* Dark mode project description color */
 }
 
 .project-skills {
@@ -353,7 +352,7 @@ a:hover {
 
 .timeline-content {
   padding: 20px;
-  background-color: black;
+  background-color: #222831;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -377,4 +376,224 @@ a:hover {
   .timeline-item {
     align-self: flex-start !important;
   }
+}
+
+/* Light Mode Transition Time */
+html,
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Floating Theme Toggle Button */
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fda521;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+
+.theme-toggle-btn:hover {
+  background-color: #ff9900;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.light-mode .theme-toggle-btn {
+  background-color: #3f24d6;
+}
+
+body.light-mode .theme-toggle-btn:hover {
+  background-color: #301bb3;
+}
+
+body.light-mode .bi-moon {
+  color: #222831;
+}
+
+body.light-mode .bi-sun {
+  color: #e8e7d2;
+}
+
+/* Add transition to other elements that change colors */
+.navbar,
+#hero-section,
+#mission-section,
+#skills-section,
+#work-experience-section,
+#projects-section,
+#contact-section,
+#footer-section {
+  transition: background-color 1s ease, color 1s ease;
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  background-color: #e8e7d2;
+  color: #110904;
+}
+
+body.light-mode a {
+  color: #3f24d6;
+}
+
+body.light-mode a:hover {
+  color: #301bb3;
+}
+
+body.light-mode .navbar {
+  background-color: #e8e7d2 !important;
+}
+
+body.light-mode .navbar-brand,
+body.light-mode .nav-link {
+  color: #3f24d6 !important;
+}
+
+body.light-mode .navbar-brand:hover,
+body.light-mode .nav-link:hover {
+  color: #301bb3 !important;
+}
+
+body.light-mode #hero-section {
+  color: #3f24d6;
+}
+
+body.light-mode #hero-background {
+  filter: none; /* Remove blur effect */
+  background-color: #e8e7d2; /* Light background color */
+}
+
+body.light-mode #hero-overlay {
+  background-color: rgba(232, 231, 210, 0.5); /* Light overlay color */
+}
+
+body.light-mode .hero-content {
+  color: #110904;
+}
+
+body.light-mode .btn-orange {
+  background-color: #3f24d6;
+  color: #e8e7d2;
+}
+
+body.light-mode .btn-orange:hover {
+  background-color: transparent;
+}
+
+body.light-mode #mission-section {
+  background-color: #e8e7d2;
+}
+
+body.light-mode .mission-text {
+  color: #3f24d6;
+}
+
+body.light-mode .section-title {
+  color: #110904;
+}
+
+body.light-mode #skills-section {
+  background-color: #e8e7d2;
+  color: #3f24d6;
+}
+
+body.light-mode .skill-logo:hover {
+  transform: scale(1.3);
+}
+
+body.light-mode #work-experience-section {
+  background-color: #e8e7d2;
+  color: #222831;
+}
+
+body.light-mode .work-experience-title,
+body.light-mode .work-experience-place {
+  color: #3f24d6;
+}
+
+body.light-mode .work-experience-subtext {
+  color: #3f24d6;
+}
+
+body.light-mode #projects-section {
+  background-color: #e8e7d2;
+  color: #3f24d6;
+}
+
+body.light-mode .project-card {
+  background-color: #e8e7d2;
+  color: #3f24d6;
+}
+
+body.light-mode .project-description {
+  color: #3f24d6;
+}
+
+body.light-mode .project-title {
+  color: #110904;
+}
+
+body.light-mode .project-date {
+  color: #384358;
+}
+
+body.light-mode .project-skills {
+  color: gray;
+}
+
+body.light-mode .project-date {
+  color: #3f24d6;
+}
+
+body.light-mode .project-description {
+  color: #301bb3;
+}
+
+body.light-mode #contact-section {
+  background-color: #e8e7d2;
+  color: #3f24d6;
+}
+
+body.light-mode .icon-link {
+  color: #8aaee0;
+}
+
+body.light-mode .icon-link:hover {
+  color: #032030; /* Updated hover color for visibility */
+}
+
+body.light-mode #footer-section {
+  background-color: #e8e7d2;
+  color: #3f24d6;
+}
+
+body.light-mode #footer-section p {
+  color: #110904; /* Updated footer text color */
+}
+
+body.light-mode .timeline-content {
+  background-color: #e8e7d2;
+  color: #222831;
+}
+
+body.light-mode .timeline-content h3 {
+  color: #110904;
+}
+
+body.light-mode .timeline-content h2 {
+  color: #384358;
+}
+
+body.light-mode .timeline-item.active {
+  color: #e8e7d2;
 }
