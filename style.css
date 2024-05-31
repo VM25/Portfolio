@@ -19,6 +19,12 @@
   z-index: -1; /* Ensure the background is behind other content */
 }
 
+body.light-mode #hero-background {
+  background-image: url("img/HeroBackImage2.jpg");
+  filter: none; /* Remove blur effect */
+  background-color: #e8e7d2; /* Light background color */
+}
+
 /* Overlay for Hero Section */
 #hero-overlay {
   position: absolute;
@@ -29,25 +35,66 @@
   background-color: rgba(0, 0, 0, 0.5); /* Dark overlay color */
 }
 
+body.light-mode #hero-overlay {
+  background-color: rgba(232, 231, 210, 0.5); /* Light overlay color */
+}
+
 /* Custom styles for Hero Content */
 .hero-content {
   position: relative; /* Ensure the content appears on top of the overlay */
   z-index: 1; /* Ensure the content appears on top of the overlay */
-  text-align: center; /* Center align content */
 }
 
 /* Custom styles for Hero Text */
 .hero-text {
-  margin-top: 50px; /* Adjust vertical spacing */
   color: #eeeeee;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to the text */
 }
 
 /* Custom styles for Headshot Image */
+.hero-image {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
 .hero-image img {
-  width: 300px; /* Adjust the width of the headshot image */
-  height: 300px; /* Adjust the height of the headshot image */
+  width: 350px; /* Adjust the width of the headshot image */
+  height: 350px; /* Adjust the height of the headshot image */
   border-radius: 50%;
-  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-image::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 355px; /* Slightly larger than the image */
+  height: 355px;
+  border: 5px solid #fda521;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Place it behind the image */
+  box-shadow: 0 0 15px rgba(253, 165, 33, 0.5); /* Glowing effect for dark mode */
+}
+
+body.light-mode .hero-image::before {
+  border: 5px solid #3f24d6;
+  box-shadow: 0 0 15px rgba(63, 36, 214, 0.5); /* Glowing effect for light mode */
+}
+
+/* Custom styles for name and tagline */
+.exo-2-name {
+  font-size: 6rem; /* Larger font size for the name */
+  font-weight: 900; /* Very bold weight for the name */
+  margin: 0; /* Remove margin */
 }
 
 /* Button styles */
@@ -63,6 +110,35 @@
 
 .btn-orange:hover {
   background-color: transparent;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .hero-content {
+    flex-direction: column;
+  }
+
+  .hero-image img {
+    margin-bottom: 10px;
+  }
+
+  .hero-text {
+    margin-top: 10px;
+  }
+
+  .exo-2-name {
+    font-size: 4rem; /* Adjust font size for smaller screens */
+  }
+}
+
+/* Scroll animation */
+.hero-text h1 {
+  transition: font-size 0.3s ease, margin-top 0.3s ease;
+}
+
+body.scrolled .hero-text h1 {
+  font-size: 2rem; /* Adjusted size when scrolling */
+  margin-top: 0;
 }
 
 /* Custom styles for Mission Section */
@@ -489,22 +565,22 @@ body.light-mode #hero-section {
   color: #3f24d6;
 }
 
-body.light-mode #hero-background {
-  filter: none; /* Remove blur effect */
-  background-color: #e8e7d2; /* Light background color */
-}
-
-body.light-mode #hero-overlay {
-  background-color: rgba(232, 231, 210, 0.5); /* Light overlay color */
-}
-
 body.light-mode .hero-content {
   color: #110904;
 }
 
+/* Light Mode Styles */
+body.light-mode .hero-text h1 {
+  color: #110904; /* Dark gray color for name */
+}
+
+body.light-mode .hero-text p {
+  color: #110904; /* Dark gray color for tagline */
+}
+
 body.light-mode .btn-orange {
-  background-color: #3f24d6;
-  color: #e8e7d2;
+  background-color: #88a3dc;
+  color: #180091;
 }
 
 body.light-mode .btn-orange:hover {

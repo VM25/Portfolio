@@ -122,3 +122,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Debounce function to limit the rate of function execution
+function debounce(func, wait = 10, immediate = true) {
+  let timeout;
+  return function () {
+    const context = this, args = arguments;
+    const later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
+// Handle scroll to resize name
+const nameElement = document.querySelector(".exo-2-name");
+const initialFontSize = 6; // Initial font size in rem
+const minFontSize = 2; // Minimum font size in rem
+const maxScroll = 300; // Max scroll amount at which the font size will reach the minimum value
+
+window.addEventListener('scroll', debounce(() => {
+  const scrollY = window.scrollY;
+  const newFontSize = Math.max(minFontSize, initialFontSize - (scrollY / maxScroll) * (initialFontSize - minFontSize));
+  nameElement.style.fontSize = `${newFontSize}rem`;
+}, 10));
