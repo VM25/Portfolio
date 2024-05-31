@@ -100,8 +100,13 @@
     </section>
     <!-- Hero Section Ends -->
 
+    <!-- Floating Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle-btn">
+      <i id="theme-icon" class="bi bi-moon"></i>
+    </button>
+
     <!-- About Me Section -->
-    <section id="mission-section" class="text-center py-5 bg-dark">
+    <section id="mission-section" class="text-center py-5">
       <div class="container">
         <h2 class="section-title">About Me</h2>
         <div class="row">
@@ -374,7 +379,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects-section" class="text-center py-5 bg-dark">
+    <section id="projects-section" class="text-center py-5">
       <div class="container">
         <h2 class="section-title">Projects</h2>
         <div class="row">
@@ -506,9 +511,9 @@
     <!-- Projects Section Ends -->
 
     <!-- Contact Section -->
-    <section id="contact-section" class="text-center py-5 bg-dark">
+    <section id="contact-section" class="text-center py-5">
       <div class="container">
-        <h2>Contact</h2>
+        <h2 class="section-title">Contact</h2>
         <div class="row justify-content-center">
           <div class="col-md-3">
             <a
@@ -534,7 +539,7 @@
     <!-- Contact Section Ends -->
 
     <!-- Footer Section -->
-    <footer id="footer-section" class="text-center text-white p-4 bg-dark">
+    <footer id="footer-section" class="text-center text-white p-4">
       <p>&copy; 2024 Vatsal Maniar</p>
     </footer>
     <!-- Footer Section Ends -->
@@ -545,92 +550,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script>
-      // JavaScript for text animation
-      const animatedText = document.getElementById("animated-text");
-      const originalText = "Vatsal Maniar";
-      const characters =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=[]{}|;:,.<>?".split(
-          ""
-        );
-      const duration = 75; // Duration of each character animation in milliseconds
-
-      function animateText(index = 0, currentText = "") {
-        if (index < originalText.length) {
-          setTimeout(() => {
-            const randomChar =
-              characters[Math.floor(Math.random() * characters.length)];
-            animatedText.textContent = currentText + randomChar;
-            animateText(index + 1, currentText);
-          }, duration);
-        } else {
-          // Display the original text once animation completes
-          setTimeout(() => {
-            animatedText.textContent = originalText;
-          }, duration);
-        }
-      }
-      // Call the function to start animation
-      animateText();
-
-      // Function to open the resume
-      function openResume() {
-        window.open("RESUME.pdf", "_blank");
-      }
-
-      // Smooth scrolling for internal links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
-        });
-      });
-
-      // Intersection Observer for animating sections
-      const observerOptions = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.1,
-      };
-
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(
-              "animate__animated",
-              "animate__fadeInUp"
-            );
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll("section").forEach((section) => {
-        observer.observe(section);
-      });
-
-      function flipCard(card) {
-        card.classList.toggle("flipped");
-      }
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const timelineItems = document.querySelectorAll(".timeline-item");
-
-        function revealTimelineItems() {
-          const triggerBottom = window.innerHeight * 0.85;
-          timelineItems.forEach((item) => {
-            const itemTop = item.getBoundingClientRect().top;
-            if (itemTop < triggerBottom) {
-              item.classList.add("active");
-            }
-          });
-        }
-
-        window.addEventListener("scroll", revealTimelineItems);
-        revealTimelineItems(); // Initial check
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
