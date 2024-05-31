@@ -5,25 +5,31 @@ const characters =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=[]{}|;:,.<>?".split(
     ""
   );
-const duration = 75; // Duration of each character animation in milliseconds
+const duration = 50; // Duration of each random character change in milliseconds
+const animationTime = 1000; // Total time for the animation before showing the name
 
-function animateText(index = 0, currentText = "") {
-  if (index < originalText.length) {
-    setTimeout(() => {
-      const randomChar =
-        characters[Math.floor(Math.random() * characters.length)];
-      animatedText.textContent = currentText + randomChar;
-      animateText(index + 1, currentText);
-    }, duration);
-  } else {
-    // Display the original text once animation completes
-    setTimeout(() => {
+function animateText() {
+  const startTime = Date.now();
+  
+  const interval = setInterval(() => {
+    const currentTime = Date.now();
+    
+    if (currentTime - startTime >= animationTime) {
+      clearInterval(interval);
       animatedText.textContent = originalText;
-    }, duration);
-  }
+    } else {
+      animatedText.textContent = originalText
+        .split("")
+        .map(() => characters[Math.floor(Math.random() * characters.length)])
+        .join("");
+    }
+  }, duration);
 }
-// Call the function to start animation
-animateText();
+
+// Call the function to start animation when DOM content is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  animateText();
+});
 
 // Function to open the resume
 function openResume() {
@@ -98,4 +104,21 @@ themeToggle.addEventListener("click", () => {
     themeIcon.classList.remove("bi-sun");
     themeIcon.classList.add("bi-moon");
   }
+});
+
+//Form validation
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("#contact-section form");
+
+  form.addEventListener("submit", (event) => {
+    // Add custom validation logic if needed
+    const name = form.querySelector("#name").value.trim();
+    const email = form.querySelector("#email").value.trim();
+    const message = form.querySelector("#message").value.trim();
+
+    if (!name || !email || !message) {
+      event.preventDefault();
+      alert("Please fill out all fields.");
+    }
+  });
 });

@@ -142,21 +142,42 @@
   color: #ec9f05;
 }
 
-/* Custom styles for Contact Section */
-#contact-section {
+/* Contact Section Styles */
+#contact-section .form-control {
   background-color: #222831;
-  padding: 100px 0;
+  color: #eeeeee;
+  border: 1px solid #fda521;
 }
 
-/* Custom styles for Contact Icons */
-.icon-link {
+#contact-section .form-control:focus {
+  background-color: #333a40;
+  color: #ffffff;
+  border-color: #fda521;
+}
+
+#contact-section .btn-orange {
+  background-color: #fda521;
+  color: #110904;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact-section .btn-orange:hover {
+  background-color: #ff9900;
+}
+
+/* Icon Link Styles */
+#contact-section .icon-link {
   font-size: 3rem;
   color: #eeeeee;
   margin: 10px;
   transition: color 0.3s ease;
 }
 
-.icon-link:hover {
+#contact-section .icon-link:hover {
   color: #fda521;
 }
 
@@ -561,14 +582,35 @@ body.light-mode .project-description {
 
 body.light-mode #contact-section {
   background-color: #e8e7d2;
+  color: #110904;
+}
+
+body.light-mode #contact-section .form-control {
+  background-color: #e8e7d2;
+  color: #110904;
+  border: 1px solid #3f24d6;
+}
+
+body.light-mode #contact-section .form-control:focus {
+  background-color: #ffffff;
+  color: #110904;
+  border-color: #3f24d6;
+}
+
+body.light-mode #contact-section .btn-orange {
+  background-color: #3f24d6;
+  color: #ffffff;
+}
+
+body.light-mode #contact-section .btn-orange:hover {
+  background-color: #301bb3;
+}
+
+body.light-mode #contact-section .icon-link {
   color: #3f24d6;
 }
 
-body.light-mode .icon-link {
-  color: #8aaee0;
-}
-
-body.light-mode .icon-link:hover {
+body.light-mode #contact-section .icon-link:hover {
   color: #032030; /* Updated hover color for visibility */
 }
 
