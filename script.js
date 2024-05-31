@@ -150,3 +150,27 @@ window.addEventListener('scroll', debounce(() => {
   const newFontSize = Math.max(minFontSize, initialFontSize - (scrollY / maxScroll) * (initialFontSize - minFontSize));
   nameElement.style.fontSize = `${newFontSize}rem`;
 }, 10));
+
+// Custom cursor functionality
+const cursor = document.getElementById('cursor');
+
+document.addEventListener('mousemove', (e) => {
+  // Move the main cursor
+  cursor.style.left = `${e.clientX}px`;
+  cursor.style.top = `${e.clientY}px`;
+});
+
+// Change cursor color based on the theme
+const changeCursorColor = () => {
+  if (body.classList.contains('light-mode')) {
+    cursor.style.backgroundColor = '#3f24d6';
+  } else {
+    cursor.style.backgroundColor = '#fda521';
+  }
+};
+
+// Update cursor color on theme toggle
+themeToggle.addEventListener('click', changeCursorColor);
+
+// Initial cursor color setting
+changeCursorColor();

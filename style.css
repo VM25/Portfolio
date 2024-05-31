@@ -104,7 +104,7 @@ body.light-mode .hero-image::before {
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  cursor: pointer;
+  /*cursor: pointer;*/
   transition: background-color 0.3s ease;
 }
 
@@ -237,7 +237,7 @@ body.scrolled .hero-text h1 {
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  cursor: pointer;
+  /*cursor: pointer;*/
   transition: background-color 0.3s ease;
 }
 
@@ -269,6 +269,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #222831;
   color: #fda521;
+  cursor: none;
 }
 
 a {
@@ -492,7 +493,7 @@ body {
   background-color: #fda521;
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
+  /*cursor: pointer;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -714,4 +715,21 @@ body.light-mode .timeline-content h2 {
 
 body.light-mode .timeline-item.active {
   color: #e8e7d2;
+}
+
+/* Custom Cursor Styles */
+#cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: #fda521; /* Initial cursor color */
+  clip-path: polygon(0% 100%, 100% 100%, 50% 0%); /* Round one side, pointy on the other */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+body.light-mode #cursor {
+  background-color: #3f24d6; /* Cursor color for light mode */
 }
