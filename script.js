@@ -1,19 +1,16 @@
 // JavaScript for text animation
 const animatedText = document.getElementById("animated-text");
 const originalText = "Vatsal Maniar";
-const characters =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=[]{}|;:,.<>?".split(
-    ""
-  );
+const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=[]{}|;:,.<>?".split("");
 const duration = 50; // Duration of each random character change in milliseconds
 const animationTime = 1000; // Total time for the animation before showing the name
 
 function animateText() {
   const startTime = Date.now();
-  
+
   const interval = setInterval(() => {
     const currentTime = Date.now();
-    
+
     if (currentTime - startTime >= animationTime) {
       clearInterval(interval);
       animatedText.textContent = originalText;
@@ -151,26 +148,79 @@ window.addEventListener('scroll', debounce(() => {
   nameElement.style.fontSize = `${newFontSize}rem`;
 }, 10));
 
-// Custom cursor functionality
-const cursor = document.getElementById('cursor');
+// Handle scroll to resize tagline
+const nameElement2 = document.querySelector("#hero-tagline");
+const initialFontSize2 = 1.5; // Initial font size in rem
+const minFontSize2 = 0.5; // Minimum font size in rem
+const maxScroll2 = 300; // Max scroll amount at which the font size will reach the minimum value
 
-document.addEventListener('mousemove', (e) => {
-  // Move the main cursor
-  cursor.style.left = `${e.clientX}px`;
-  cursor.style.top = `${e.clientY}px`;
-});
+window.addEventListener('scroll', debounce(() => {
+  const scrollY2 = window.scrollY;
+  const newFontSize2 = Math.max(minFontSize2, initialFontSize2 - (scrollY2 / maxScroll2) * (initialFontSize2 - minFontSize2));
+  nameElement2.style.fontSize = `${newFontSize2}rem`;
+}, 10));
 
-// Change cursor color based on the theme
-const changeCursorColor = () => {
-  if (body.classList.contains('light-mode')) {
-    cursor.style.backgroundColor = '#3f24d6';
-  } else {
-    cursor.style.backgroundColor = '#fda521';
-  }
+// Intersection Observer for animating sections
+const aboutObserverOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.1,
 };
 
-// Update cursor color on theme toggle
-themeToggle.addEventListener('click', changeCursorColor);
+const aboutObserver = new IntersectionObserver((entries, aboutObserver) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animate__animated", "animate__fadeInUp");
+      aboutObserver.unobserve(entry.target);
+    }
+  });
+}, aboutObserverOptions);
 
-// Initial cursor color setting
-changeCursorColor();
+document.querySelectorAll(".about-card").forEach((card) => {
+  aboutObserver.observe(card);
+});
+
+// Additional animations
+document.querySelectorAll(".about-card").forEach((card, index) => {
+  card.style.animationDelay = `${index * 0.3}s`;
+});
+
+// Expanding effect for about cards
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutCards = document.querySelectorAll(".about-card");
+
+  aboutCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      aboutCards.forEach(c => {
+        if (c !== card) {
+          c.classList.remove('expanded');
+          c.classList.add('collapsed');
+        }
+      });
+      card.classList.add('expanded');
+      card.classList.remove('collapsed');
+    });
+
+    card.addEventListener('mouseleave', () => {
+      aboutCards.forEach(c => {
+        c.classList.remove('expanded');
+        c.classList.remove('collapsed');
+      });
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const projectCards = document.querySelectorAll(".project-card");
+
+  projectCards.forEach(card => {
+    card.addEventListener('click', () => {
+      projectCards.forEach(c => {
+        if (c !== card) {
+          c.classList.remove('flipped');
+        }
+      });
+      card.classList.toggle('flipped');
+    });
+  });
+});

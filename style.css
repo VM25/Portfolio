@@ -4,6 +4,9 @@
   padding: 100px 0;
   color: #fda521;
   overflow: hidden; /* Ensure the overlay covers the entire section */
+  display: flex;
+  align-items: center;
+  height: 100vh;
 }
 
 /* Background image with blur */
@@ -17,12 +20,6 @@
   background-size: cover;
   filter: blur(5px); /* Apply blur effect */
   z-index: -1; /* Ensure the background is behind other content */
-}
-
-body.light-mode #hero-background {
-  background-image: url("img/HeroBackImage2.jpg");
-  filter: none; /* Remove blur effect */
-  background-color: #e8e7d2; /* Light background color */
 }
 
 /* Overlay for Hero Section */
@@ -43,6 +40,8 @@ body.light-mode #hero-overlay {
 .hero-content {
   position: relative; /* Ensure the content appears on top of the overlay */
   z-index: 1; /* Ensure the content appears on top of the overlay */
+  display: flex;
+  align-items: center;
 }
 
 /* Custom styles for Hero Text */
@@ -54,6 +53,16 @@ body.light-mode #hero-overlay {
   justify-content: center;
   height: 100%;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to the text */
+}
+
+#hero-tagline {
+  font-family: 'Courier New', 'Courier New', Courier, monospace;
+  transition: font-size 0.3s ease, margin-top 0.3s ease;
+}
+
+body.scrolled #hero-tagline {
+  font-size: 0.5rem; /* Adjusted size when scrolling */
+  margin-top: 0;
 }
 
 /* Custom styles for Headshot Image */
@@ -93,7 +102,7 @@ body.light-mode .hero-image::before {
 /* Custom styles for name and tagline */
 .exo-2-name {
   font-size: 6rem; /* Larger font size for the name */
-  font-weight: 900; /* Very bold weight for the name */
+  font-weight: 999; /* Very bold weight for the name */
   margin: 0; /* Remove margin */
 }
 
@@ -104,7 +113,7 @@ body.light-mode .hero-image::before {
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  /*cursor: pointer;*/
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
@@ -141,16 +150,90 @@ body.scrolled .hero-text h1 {
   margin-top: 0;
 }
 
-/* Custom styles for Mission Section */
+/* About Me Section Styles */
 #mission-section {
   background-color: #222831;
+  color: #eeeeee;
   padding: 100px 0;
+  position: relative;
 }
 
-/* Custom styles for Mission Text */
-.mission-text {
+.about-card {
+  background-color: #333a40;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.about-card i {
+  font-size: 2rem;
   color: #fda521;
-  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.about-title {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.about-card.expanded {
+  height: 300px;
+  background-color: #444b52;
+  z-index: 10;
+}
+
+.about-card.expanded i, .about-card.expanded .about-title {
+  display: flex;
+}
+
+.about-card.expanded .about-text {
+  display: block;
+  color: #aaaaaa;
+  text-align: left;
+}
+
+.about-text {
+  display: none;
+  transition: all 0.3s ease;
+}
+
+body.light-mode #mission-section {
+  background-color: #e8e7d2;
+  color: #110904;
+}
+
+body.light-mode .about-card {
+  background-color: #ffffff;
+  color: #110904;
+}
+
+body.light-mode .about-title {
+  color: #3f24d6;
+}
+
+body.light-mode .about-text {
+  color: #3f24d6;
+}
+
+body.light-mode .about-card i {
+  color: #3f24d6;
+}
+
+body.light-mode .about-card.expanded {
+  background-color: #e0e0e0;
+}
+
+body.light-mode .about-card.expanded .about-text {
+  color: #110904;
 }
 
 /* Bold About Me and Skills title */
@@ -237,7 +320,7 @@ body.scrolled .hero-text h1 {
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  /*cursor: pointer;*/
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
@@ -269,7 +352,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #222831;
   color: #fda521;
-  cursor: none;
+  /*cursor: none;*/
 }
 
 a {
@@ -283,7 +366,7 @@ a:hover {
 
 /* Navbar Styles */
 .navbar {
-  background-color: #111 !important;
+  background-color: #222831 !important;
 }
 
 .navbar-brand,
@@ -295,6 +378,8 @@ a:hover {
 .nav-link:hover {
   color: #ff9900 !important;
 }
+
+
 
 /* Custom styles for animated text */
 #animated-text {
@@ -493,7 +578,7 @@ body {
   background-color: #fda521;
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  /*cursor: pointer;*/
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -570,7 +655,6 @@ body.light-mode .hero-content {
   color: #110904;
 }
 
-/* Light Mode Styles */
 body.light-mode .hero-text h1 {
   color: #110904; /* Dark gray color for name */
 }
@@ -717,19 +801,160 @@ body.light-mode .timeline-item.active {
   color: #e8e7d2;
 }
 
-/* Custom Cursor Styles */
-#cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background-color: #fda521; /* Initial cursor color */
-  clip-path: polygon(0% 100%, 100% 100%, 50% 0%); /* Round one side, pointy on the other */
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 10000;
-  transition: background-color 0.3s ease, transform 0.1s ease;
+/* GitHub Link Styles */
+.github-link-container {
+  margin-top: 20px; /* Adjust the margin-top to create space between the button and the link */
 }
 
-body.light-mode #cursor {
-  background-color: #3f24d6; /* Cursor color for light mode */
+.github-link {
+  color: #bbbbbb; /* Lighter color for the link */
+  text-decoration: underline;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.github-link:hover {
+  color: #ffffff; /* Slightly darker color on hover */
+}
+
+body.light-mode .github-link {
+  color: #222222; /* Adjust color for light mode */
+}
+
+body.light-mode .github-link:hover {
+  color: #666666; /* Slightly lighter color on hover for light mode */
+}
+
+/* General Styles for Smaller Screens */
+@media (max-width: 767.98px) {
+  /* Adjust Hero Section */
+  #hero-section {
+    padding: 50px 0;
+    height: auto; /* Ensure the section adjusts to content height */
+  }
+
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-image img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  .hero-text {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .exo-2-name {
+    font-size: 3rem; /* Adjust font size for smaller screens */
+  }
+
+  #hero-tagline {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+
+  .github-link-container {
+    margin-top: 10px;
+  }
+
+  .github-link {
+    font-size: 0.875rem; /* Adjust font size for smaller screens */
+  }
+
+  /* Adjust About Me Section */
+  #mission-section {
+    padding: 50px 0;
+  }
+
+  .about-card {
+    margin: 10px auto;
+    width: 100%;
+    transition: none; /* Disable hover transition on mobile */
+  }
+
+  .about-card.expanded {
+    transform: none;
+    background-color: #333a40;
+    padding: 20px;
+  }
+
+  .about-card.expanded .about-text {
+    display: block;
+  }
+
+  /* Adjust Skills Section */
+  #skills-section {
+    padding: 50px 0;
+  }
+
+  .skill-logo {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  /* Adjust Projects Section */
+  .project-card {
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .project-description {
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* Adjust Contact Section */
+  #contact-section {
+    padding: 50px 0;
+  }
+
+  /* Adjust Footer Section */
+  #footer-section {
+    padding: 20px 0;
+  }
+}
+
+/* Adjust Project Cards for Smaller Screens */
+@media (max-width: 767.98px) {
+  .project-card {
+    height: auto;
+    margin-bottom: 20px;
+    transform: none;
+  }
+
+  .project-card .front-face,
+  .project-card .back-face {
+    position: static;
+    transform: none;
+    backface-visibility: hidden;
+    display: block;
+    width: 100%;
+  }
+
+  .project-card .back-face {
+    display: none;
+  }
+
+  .project-card.flipped .front-face {
+    display: none;
+  }
+
+  .project-card.flipped .back-face {
+    display: block;
+  }
+}
+
+/* Adjusted Animations for Mobile */
+@media (max-width: 767.98px) {
+  .animate__fadeInUp {
+    animation-duration: 0.5s; /* Reduce animation duration */
+  }
+
+  .about-card.expanded {
+    transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+  }
 }

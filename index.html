@@ -47,9 +47,6 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#hero-section">Home</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="#mission-section">About Me</a>
             </li>
             <li class="nav-item">
@@ -89,6 +86,11 @@
             <button class="btn btn-orange mt-3" onclick="openResume()">
               View Resume
             </button>
+            <p class="mt-2 github-link-container">
+              <a href="https://github.com/VM25/Portfolio" target="_blank" class="github-link">
+                View the code for this<br>portfolio on GitHub
+              </a>
+            </p>
           </div>
           <div class="col-md-8 text-md-start text-center align-self-center">
             <div class="hero-text">
@@ -109,27 +111,45 @@
     </button>
 
     <!-- About Me Section -->
-    <section id="mission-section" class="text-center py-5">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="row">
-          <div class="col-md-12">
-            <p class="mission-text">
-              As a junior majoring in Computer Science and minoring in Business
-              at Arizona State University, with aspirations in Quantitative
-              Finance, I am deeply passionate about the intersection of
-              mathematics, data, and finance. My coursework and extracurricular
-              pursuits reflect my commitment to mastering programming, data
-              analysis, and statistical modeling. With an eye towards my future
-              in Quantitative Finance, I aim to blend my technical skills with a
-              keen understanding of financial markets to drive innovative
-              solutions and insights.
-            </p>
-          </div>
+<section id="mission-section" class="text-center py-5">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="about-card">
+          <i class="bi bi-book-half"></i>
+          <h3 class="about-title">Education</h3>
+          <p class="about-text">
+            Senior majoring in Computer Science and minoring in Business at Arizona State University.
+          </p>
         </div>
       </div>
-    </section>
-    <!-- About Me Section Ends -->
+      <div class="col-md-4">
+        <div class="about-card">
+          <i class="bi bi-graph-up-arrow"></i>
+          <h3 class="about-title">Goals</h3>
+          <p class="about-text">
+            Aspiring to pursue a Master's degree in Quantitative Finance or Financial Engineering to blend technical skills with financial markets to drive innovative solutions.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="about-card">
+          <i class="bi bi-heart"></i>
+          <h3 class="about-title">Hobbies/Interests</h3>
+          <p class="about-text">
+            - Movies<br />
+            - Filmmaking<br />
+            - Cinematography<br />
+            - Theater<br />
+            - Acting
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- About Section Ends -->
 
     <!-- Skills Section -->
     <section id="skills-section" class="text-center py-5">
@@ -219,24 +239,29 @@
               <p class="work-experience-subtext">May 2024 - Present</p>
               <ul>
                 <li>
-                  Develop innovative AI solutions, leveraging technologies such
-                  as OpenAI, Node.js, and React to create ReX, an AI career
-                  coach offering personalized coaching and mentorship.
+                  Develop AI solutions using OpenAI, Node.js, and React to
+                  create ReX, an AI career coach offering personalized coaching
+                  and mentorship.
                 </li>
                 <li>
-                  Redefine the concept of upskilling through AI by integrating
-                  financial rewards and conversational AI, providing learners
-                  with a rewarding and interactive experience.
+                  Build back-end services for QuantumChat Bot to support
+                  real-time interactions, ensuring reliable and speedy
+                  communication.
                 </li>
                 <li>
-                  Collaborate closely with the team to enhance ReX's
-                  performance, functionality, and user interface, ensuring
-                  seamless and effective interaction for all learners.
+                  Create the CosmoChat UI, an engaging frontend chat application
+                  powered by OpenAI's GPT-3.5, with a dynamic interface and
+                  Activity Dashboard.
                 </li>
                 <li>
-                  Contribute to Radical AI's vision by supporting the
-                  development of personalized, accessible, and impactful
-                  AI-based career development tools.
+                  Contribute to Kai, an open-source AI Teaching Assistant,
+                  providing tools for instructional design and assessment
+                  management.
+                </li>
+                <li>
+                  Enhance ReX's performance and user interface, supporting
+                  Radical AI's mission of accessible and impactful AI-based
+                  career development tools
                 </li>
               </ul>
             </div>
@@ -584,10 +609,6 @@
       <p>&copy; 2024 Vatsal Maniar</p>
     </footer>
     <!-- Footer Section Ends -->
-
-    <!-- Custom Cursor -->
-    <div id="cursor"></div>
-    <div id="cursor-trail"></div>
 
     <!-- Bootstrap JavaScript Script Tag -->
     <script
