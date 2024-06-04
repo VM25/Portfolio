@@ -1,3 +1,12 @@
+/*font*/
+
+.platypi-title {
+  font-family: "Platypi", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
 /* Custom styles for Hero Section */
 #hero-section {
   position: relative;
@@ -56,7 +65,7 @@ body.light-mode #hero-overlay {
 }
 
 #hero-tagline {
-  font-family: 'Courier New', 'Courier New', Courier, monospace;
+  font-family: "Courier New", "Courier New", Courier, monospace;
   transition: font-size 0.3s ease, margin-top 0.3s ease;
 }
 
@@ -163,41 +172,45 @@ body.scrolled .hero-text h1 {
   border-radius: 10px;
   padding: 20px;
   margin: 10px;
-  cursor: pointer;
+  /*cursor: pointer;*/
   transition: all 0.3s ease;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  /*overflow: hidden;*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #ffd27f, #ffe066, #ffb84d);
 }
 
 .about-card i {
   font-size: 2rem;
-  color: #fda521;
+  color: #000000;
   margin-bottom: 10px;
 }
 
 .about-title {
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
+  color: #282828
 }
 
 .about-card.expanded {
   height: 300px;
-  background-color: #444b52;
+  background-color: #333a40;
   z-index: 10;
 }
 
-.about-card.expanded i, .about-card.expanded .about-title {
+.about-card.expanded i,
+.about-card.expanded .about-title {
   display: flex;
 }
 
 .about-card.expanded .about-text {
   display: block;
-  color: #aaaaaa;
+  color: #2f4f4f;
   text-align: left;
 }
 
@@ -207,7 +220,7 @@ body.scrolled .hero-text h1 {
 }
 
 body.light-mode #mission-section {
-  background-color: #e8e7d2;
+  /* background-color: #e8e7d2; */
   color: #110904;
 }
 
@@ -268,37 +281,93 @@ body.light-mode .about-card.expanded .about-text {
 
 /* Custom styles for Work Experience Section */
 #work-experience-section {
-  background-color: #222831;
+  /* background-color: transparent; */
   color: #eeeeee;
   padding-top: 100px;
   padding-bottom: 100px;
 }
 
-/* Custom styles for Work Experience Cards */
-.work-experience-card {
-  background-color: #222831;
-  color: #eeeeee;
-  border-radius: 10px;
+/* Timeline Styles */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 20px 40px;
+  border-radius: 8px;
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-in-out;
+}
+
+.timeline-item:nth-child(even) {
+  align-self: flex-start;
+}
+
+.timeline-item:nth-child(odd) {
+  align-self: flex-end;
+}
+
+.timeline-content {
   padding: 20px;
-  margin-bottom: 20px;
+  background-color: #333a40;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(0deg, #008f8f, #008383, #004e4e, #002a2a);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+}
+
+.timeline-content .date {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.timeline-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+  .timeline-item {
+    align-self: flex-start !important;
+  }
 }
 
 .work-experience-title {
   font-size: 1.5rem;
   font-weight: bold;
   color: #eeeeee;
+  text-shadow: 2px 2px #000000;
   margin-bottom: 5px;
 }
 
 .work-experience-place {
   font-size: 1rem;
   font-style: italic;
-  color: #eeeeee;
+  color: #ffe600;
   margin-bottom: 10px;
 }
 
 .work-experience-subtext {
-  color: #ec9f05;
+  float: right;
+  font-size: 1rem;
+  font-style: italic;
+  color: #ffe600;
 }
 
 /* Contact Section Styles */
@@ -352,8 +421,25 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #222831;
   color: #fda521;
+  /* background: linear-gradient(270deg, #ff00aa, #9900ff, #0080ff, #00aeff, #7cb5ff); */
+  /* animation: gradient 10s ease infinite; */
+  /* transition: transform 0.3s, box-shadow 0.3s; */
+  height: 100vh;
+  background-size: 2000% 2000%;
   /*cursor: none;*/
 }
+
+/* @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+} */
 
 a {
   color: #fda521;
@@ -378,8 +464,6 @@ a:hover {
 .nav-link:hover {
   color: #ff9900 !important;
 }
-
-
 
 /* Custom styles for animated text */
 #animated-text {
@@ -418,45 +502,46 @@ a:hover {
 }
 
 .project-card {
-  background-color: #222831;
+  perspective: 1000px;
   border: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transform-style: preserve-3d;
-  position: relative;
   height: 300px; /* Set a fixed height for consistency */
-  transition: transform 0.5s;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #222831;
 }
 
-.project-card:hover .front-face {
-  transform: rotateY(180deg);
-}
-
-.project-card:hover .back-face {
-  transform: rotateY(0deg);
-}
-
-.front-face,
-.back-face {
+.project-card .card-body {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  border-radius: 10px; /* Apply border-radius to inner content */
 }
 
-.front-face {
+.project-card .front-face {
+  background-color: #333a40;
   z-index: 2;
-  transform: rotateY(0deg);
+  background: radial-gradient(#e66465, #9198e5);
 }
 
-.back-face {
-  z-index: 1;
+.project-card .back-face {
+  background-color: #333a40;
   transform: rotateY(180deg);
+}
+
+.project-card:hover .front-face {
+  transform: rotateY(-180deg);
+}
+
+.project-card:hover .back-face {
+  transform: rotateY(0deg);
 }
 
 .project-title,
@@ -474,91 +559,49 @@ a:hover {
 }
 
 .project-date {
-  font-size: 0.875rem; /* Reduce font size for dates */
+  font-size: 0.875rem;
   font-style: italic;
-  color: #ec9f05;
+  color: #352300;
 }
 
 .project-description {
-  font-size: 1rem; /* Reduce font size for description */
-  overflow: auto; /* Add overflow auto to handle long descriptions */
-  color: #ec9f05; /* Dark mode project description color */
+  font-size: 1rem;
+  overflow: auto;
+  color: #ec9f05;
 }
 
 .project-skills {
-  font-size: 0.875rem; /* Reduce font size for skills */
+  font-size: 0.875rem;
   color: #a0a0a0;
   font-style: italic;
 }
 
-.project-title,
-.project-date {
-  margin-bottom: 5px; /* Reduce margin between title and date */
+body.light-mode #projects-section {
+  background-color: #e8e7d2;
+  color: #3f24d6;
 }
 
-/* Add flipped class to flip the card */
-.flipped .project-card {
-  transform: rotateY(180deg);
+body.light-mode .project-card .front-face {
+  background-color: #e8e7d2;
+  z-index: 2;
+  background: radial-gradient(#fbc2eb, #a6c1ee);
 }
 
-/* Timeline Styles */
-.timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 0;
+body.light-mode .project-card .back-face {
+  background-color: #fffeec;
+  color: #3f24d6;
 }
 
-.timeline-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
+body.light-mode .project-title {
+  color: #110904;
 }
 
-.timeline-item {
-  position: relative;
-  padding: 20px 40px;
-  border-radius: 8px;
-  margin: 20px 0;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease-in-out;
+body.light-mode .project-date {
+  color: #384358;
 }
 
-.timeline-item:nth-child(even) {
-  align-self: flex-start;
-}
-
-.timeline-item:nth-child(odd) {
-  align-self: flex-end;
-}
-
-.timeline-content {
-  padding: 20px;
-  background-color: #222831;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.timeline-content h3 {
-  margin-top: 0;
-}
-
-.timeline-content .date {
-  font-weight: bold;
-  margin-bottom: 10px;
-  display: block;
-}
-
-.timeline-item.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media screen and (max-width: 768px) {
-  .timeline-item {
-    align-self: flex-start !important;
-  }
+body.light-mode .project-skills {
+  color: gray;
 }
 
 /* Light Mode Transition Time */
@@ -698,9 +741,12 @@ body.light-mode #work-experience-section {
   color: #222831;
 }
 
-body.light-mode .work-experience-title,
+body.light-mode .work-experience-title {
+  color: #222831;
+  text-shadow: none;
+}
 body.light-mode .work-experience-place {
-  color: #3f24d6;
+  color: #3f24d6 !important;
 }
 
 body.light-mode .work-experience-subtext {
@@ -787,6 +833,7 @@ body.light-mode #footer-section p {
 body.light-mode .timeline-content {
   background-color: #e8e7d2;
   color: #222831;
+  background: linear-gradient(0deg, #ffefd5, #fff8dc, #fffacd, #fafad2);
 }
 
 body.light-mode .timeline-content h3 {
@@ -823,138 +870,4 @@ body.light-mode .github-link {
 
 body.light-mode .github-link:hover {
   color: #666666; /* Slightly lighter color on hover for light mode */
-}
-
-/* General Styles for Smaller Screens */
-@media (max-width: 767.98px) {
-  /* Adjust Hero Section */
-  #hero-section {
-    padding: 50px 0;
-    height: auto; /* Ensure the section adjusts to content height */
-  }
-
-  .hero-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-image img {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 20px;
-  }
-
-  .hero-text {
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .exo-2-name {
-    font-size: 3rem; /* Adjust font size for smaller screens */
-  }
-
-  #hero-tagline {
-    font-size: 1rem; /* Adjust font size for smaller screens */
-  }
-
-  .github-link-container {
-    margin-top: 10px;
-  }
-
-  .github-link {
-    font-size: 0.875rem; /* Adjust font size for smaller screens */
-  }
-
-  /* Adjust About Me Section */
-  #mission-section {
-    padding: 50px 0;
-  }
-
-  .about-card {
-    margin: 10px auto;
-    width: 100%;
-    transition: none; /* Disable hover transition on mobile */
-  }
-
-  .about-card.expanded {
-    transform: none;
-    background-color: #333a40;
-    padding: 20px;
-  }
-
-  .about-card.expanded .about-text {
-    display: block;
-  }
-
-  /* Adjust Skills Section */
-  #skills-section {
-    padding: 50px 0;
-  }
-
-  .skill-logo {
-    max-width: 100px;
-    max-height: 100px;
-  }
-
-  /* Adjust Projects Section */
-  .project-card {
-    height: auto;
-    margin-bottom: 20px;
-  }
-
-  .project-description {
-    max-height: none;
-    overflow: visible;
-  }
-
-  /* Adjust Contact Section */
-  #contact-section {
-    padding: 50px 0;
-  }
-
-  /* Adjust Footer Section */
-  #footer-section {
-    padding: 20px 0;
-  }
-}
-
-/* Adjust Project Cards for Smaller Screens */
-@media (max-width: 767.98px) {
-  .project-card {
-    height: auto;
-    margin-bottom: 20px;
-    transform: none;
-  }
-
-  .project-card .front-face,
-  .project-card .back-face {
-    position: static;
-    transform: none;
-    backface-visibility: hidden;
-    display: block;
-    width: 100%;
-  }
-
-  .project-card .back-face {
-    display: none;
-  }
-
-  .project-card.flipped .front-face {
-    display: none;
-  }
-
-  .project-card.flipped .back-face {
-    display: block;
-  }
-}
-
-/* Adjusted Animations for Mobile */
-@media (max-width: 767.98px) {
-  .animate__fadeInUp {
-    animation-duration: 0.5s; /* Reduce animation duration */
-  }
-
-  .about-card.expanded {
-    transition: transform 0.2s ease-out, background-color 0.2s ease-out;
-  }
 }

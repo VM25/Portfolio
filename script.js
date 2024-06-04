@@ -215,11 +215,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   projectCards.forEach(card => {
     card.addEventListener('click', () => {
-      projectCards.forEach(c => {
-        if (c !== card) {
-          c.classList.remove('flipped');
-        }
-      });
       card.classList.toggle('flipped');
     });
   });
