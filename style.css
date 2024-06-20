@@ -544,6 +544,13 @@ a:hover {
   transform: rotateY(0deg);
 }
 
+.project-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 .project-title,
 .project-date,
 .project-description,
@@ -602,6 +609,10 @@ body.light-mode .project-date {
 
 body.light-mode .project-skills {
   color: gray;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Light Mode Transition Time */
