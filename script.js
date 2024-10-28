@@ -2,15 +2,13 @@
 const animatedText = document.getElementById("animated-text");
 const originalText = "Vatsal Maniar";
 const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=[]{}|;:,.<>?".split("");
-const duration = 50; // Duration of each random character change in milliseconds
-const animationTime = 1000; // Total time for the animation before showing the name
+const duration = 50;
+const animationTime = 1000;
 
 function animateText() {
   const startTime = Date.now();
-
   const interval = setInterval(() => {
     const currentTime = Date.now();
-
     if (currentTime - startTime >= animationTime) {
       clearInterval(interval);
       animatedText.textContent = originalText;
@@ -23,7 +21,6 @@ function animateText() {
   }, duration);
 }
 
-// Call the function to start animation when DOM content is loaded
 document.addEventListener("DOMContentLoaded", () => {
   animateText();
 });
@@ -34,15 +31,12 @@ function openResume() {
 }
 
 // Smooth scrolling for internal links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
-    const targetId = this.getAttribute("href");
-    if (targetId && targetId !== "#") {
-      e.preventDefault();
-      document.querySelector(targetId).scrollIntoView({
-        behavior: "smooth",
-      });
-    }
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth"
+    });
   });
 });
 
@@ -50,11 +44,11 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 const observerOptions = {
   root: null,
   rootMargin: "0px",
-  threshold: 0.1,
+  threshold: 0.1
 };
 
 const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("animate__animated", "animate__fadeInUp");
       observer.unobserve(entry.target);
@@ -62,10 +56,11 @@ const observer = new IntersectionObserver((entries, observer) => {
   });
 }, observerOptions);
 
-document.querySelectorAll("section").forEach((section) => {
+document.querySelectorAll("section").forEach(section => {
   observer.observe(section);
 });
 
+// Function to flip cards
 function flipCard(card) {
   card.classList.toggle("flipped");
 }
@@ -75,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function revealTimelineItems() {
     const triggerBottom = window.innerHeight * 0.85;
-    timelineItems.forEach((item) => {
+    timelineItems.forEach(item => {
       const itemTop = item.getBoundingClientRect().top;
       if (itemTop < triggerBottom) {
         item.classList.add("active");
@@ -84,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.addEventListener("scroll", revealTimelineItems);
-  revealTimelineItems(); // Initial check
+  revealTimelineItems();
 });
 
 // Toggle theme functionality
@@ -94,21 +89,16 @@ const body = document.body;
 
 themeToggle.addEventListener("click", () => {
   body.classList.toggle("light-mode");
-  if (body.classList.contains("light-mode")) {
-    themeIcon.classList.remove("bi-moon");
-    themeIcon.classList.add("bi-sun");
-  } else {
-    themeIcon.classList.remove("bi-sun");
-    themeIcon.classList.add("bi-moon");
-  }
+  themeIcon.classList.toggle("bi-moon");
+  themeIcon.classList.toggle("bi-sun");
+  animateText();
 });
 
-//Form validation
+// Form validation
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#contact-section form");
 
   form.addEventListener("submit", (event) => {
-    // Add custom validation logic if needed
     const name = form.querySelector("#name").value.trim();
     const email = form.querySelector("#email").value.trim();
     const message = form.querySelector("#message").value.trim();
@@ -124,7 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
 function debounce(func, wait = 10, immediate = true) {
   let timeout;
   return function () {
-    const context = this, args = arguments;
+    const context = this,
+      args = arguments;
     const later = function () {
       timeout = null;
       if (!immediate) func.apply(context, args);
@@ -136,35 +127,40 @@ function debounce(func, wait = 10, immediate = true) {
   };
 }
 
-// Handle scroll to resize name
+// Handle scroll to resize name and tagline
 const nameElement = document.querySelector(".exo-2-name");
-const initialFontSize = 6; // Initial font size in rem
-const minFontSize = 2; // Minimum font size in rem
-const maxScroll = 300; // Max scroll amount at which the font size will reach the minimum value
+const initialFontSize = 6;
+const minFontSize = 2;
+const maxScroll = 300;
 
-window.addEventListener('scroll', debounce(() => {
-  const scrollY = window.scrollY;
-  const newFontSize = Math.max(minFontSize, initialFontSize - (scrollY / maxScroll) * (initialFontSize - minFontSize));
-  nameElement.style.fontSize = `${newFontSize}rem`;
-}, 10));
+window.addEventListener(
+  "scroll",
+  debounce(() => {
+    const scrollY = window.scrollY;
+    const newFontSize = Math.max(minFontSize, initialFontSize - (scrollY / maxScroll) * (initialFontSize - minFontSize));
+    nameElement.style.fontSize = `${newFontSize}rem`;
+  }, 10)
+);
 
-// Handle scroll to resize tagline
 const nameElement2 = document.querySelector("#hero-tagline");
-const initialFontSize2 = 1.5; // Initial font size in rem
-const minFontSize2 = 0.5; // Minimum font size in rem
-const maxScroll2 = 300; // Max scroll amount at which the font size will reach the minimum value
+const initialFontSize2 = 1.5;
+const minFontSize2 = 0.5;
+const maxScroll2 = 300;
 
-window.addEventListener('scroll', debounce(() => {
-  const scrollY2 = window.scrollY;
-  const newFontSize2 = Math.max(minFontSize2, initialFontSize2 - (scrollY2 / maxScroll2) * (initialFontSize2 - minFontSize2));
-  nameElement2.style.fontSize = `${newFontSize2}rem`;
-}, 10));
+window.addEventListener(
+  "scroll",
+  debounce(() => {
+    const scrollY2 = window.scrollY;
+    const newFontSize2 = Math.max(minFontSize2, initialFontSize2 - (scrollY2 / maxScroll2) * (initialFontSize2 - minFontSize2));
+    nameElement2.style.fontSize = `${newFontSize2}rem`;
+  }, 10)
+);
 
-// Intersection Observer for animating sections
+// Intersection Observer for about cards
 const aboutObserverOptions = {
   root: null,
   rootMargin: "0px",
-  threshold: 0.1,
+  threshold: 0.1
 };
 
 const aboutObserver = new IntersectionObserver((entries, aboutObserver) => {
@@ -176,11 +172,11 @@ const aboutObserver = new IntersectionObserver((entries, aboutObserver) => {
   });
 }, aboutObserverOptions);
 
-document.querySelectorAll(".about-card").forEach((card) => {
+document.querySelectorAll(".about-card").forEach(card => {
   aboutObserver.observe(card);
 });
 
-// Additional animations
+// Additional animations for about cards
 document.querySelectorAll(".about-card").forEach((card, index) => {
   card.style.animationDelay = `${index * 0.3}s`;
 });
@@ -190,32 +186,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const aboutCards = document.querySelectorAll(".about-card");
 
   aboutCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
+    card.addEventListener("mouseenter", () => {
       aboutCards.forEach(c => {
         if (c !== card) {
-          c.classList.remove('expanded');
-          c.classList.add('collapsed');
+          c.classList.remove("expanded");
+          c.classList.add("collapsed");
         }
       });
-      card.classList.add('expanded');
-      card.classList.remove('collapsed');
+      card.classList.add("expanded");
+      card.classList.remove("collapsed");
     });
 
-    card.addEventListener('mouseleave', () => {
+    card.addEventListener("mouseleave", () => {
       aboutCards.forEach(c => {
-        c.classList.remove('expanded');
-        c.classList.remove('collapsed');
+        c.classList.remove("expanded");
+        c.classList.remove("collapsed");
       });
     });
   });
 });
 
+// Flipping project cards
 document.addEventListener("DOMContentLoaded", () => {
   const projectCards = document.querySelectorAll(".project-card");
 
   projectCards.forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('flipped');
+    card.addEventListener("click", () => {
+      card.classList.toggle("flipped");
     });
   });
 });
